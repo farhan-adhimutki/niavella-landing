@@ -493,7 +493,7 @@ body::before {
 
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
 }
 @media (max-width: 420px) { .product-grid { gap: 10px; } }
@@ -547,49 +547,84 @@ body::before {
   color: var(--ink-muted);
 }
 
-/* Pricing — original (strikethrough) over discounted price + badge */
-.product-info .pricebox {
+/* Pricing — one column per size: label + badge, normal price (struck), sale price */
+.product-info .sizes {
   margin-top: auto;
-  padding-top: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.product-info .pcat { margin-bottom: 10px; }
+
+.product-info .size {
   display: flex;
   flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  padding: 8px 9px 9px;
 }
-.product-info .pricebox .original {
+.product-info .size + .size {
+  border-left: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+.product-info .size-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 3px;
+}
+.product-info .size-label {
   font-family: var(--body);
-  font-size: .72rem;
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--ink-muted);
+}
+.product-info .size .original {
+  font-family: var(--body);
+  font-size: .68rem;
   color: var(--ink-muted);
   text-decoration: line-through;
   text-decoration-thickness: 1px;
   font-variant-numeric: tabular-nums;
 }
-.product-info .pricebox .now {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.product-info .pricebox .now .price {
+.product-info .size .price {
   font-family: var(--display);
   font-weight: 600;
   font-size: 1rem;
+  line-height: 1.15;
   color: var(--ink);
   letter-spacing: .01em;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
-.product-info .pricebox .now .badge {
-  padding: 2px 7px;
+.product-info .size .badge {
+  padding: 1px 5px;
   background: var(--rose);
   color: #FBF4E7;
   border-radius: 4px;
   font-family: var(--body);
-  font-size: .62rem;
+  font-size: .58rem;
   font-weight: 700;
-  letter-spacing: .06em;
+  letter-spacing: .04em;
 }
 
-.product-info .pricebox .pnote {
-  margin-top: 4px;
-  font-size: .68rem;
-  color: var(--ink-muted);
+/* small phones: two product cards per row leave ~75px per size column */
+.product-info .size .price .cur { font-size: .78em; margin-right: 1px; }
+
+@media (max-width: 420px) {
+  .product-info .size { padding: 7px 6px 8px; }
+  .product-info .size .price { font-size: .9rem; }
+  .product-info .size-label { letter-spacing: .06em; }
+  .product-info .size .badge { padding: 1px 4px; font-size: .54rem; }
+}
+@media (max-width: 380px) {
+  .product-info .size { padding: 6px 5px 7px; }
+  .product-info .size .price { font-size: .8rem; }
+  .product-info .size-label { letter-spacing: .03em; }
 }
 
 
@@ -790,3 +825,12 @@ footer .fmeta a {
 }
 .drawer-foot a:hover,
 footer .fmeta a:hover { color: var(--accent); }
+
+/* very small phones (<=340px): stack the two size columns */
+@media (max-width: 340px) {
+  .product-info .sizes { grid-template-columns: minmax(0, 1fr); }
+  .product-info .size + .size {
+    border-left: 0;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  }
+}
