@@ -179,6 +179,40 @@
 
 
   /* ===========================================================================
+     2c. ACCORDION (How to Order) — one panel open at a time
+     Buttons give Enter/Space for free; Arrow Up/Down, Home, End move focus.
+     Closed panels are `inert` so their content is skipped by Tab / readers.
+     ======================================================================== */
+  document.querySelectorAll('.accordion').forEach((acc) => {
+    const triggers = Array.from(acc.querySelectorAll('.acc-trigger'));
+
+    function setOpen(btn, open) {
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(open));
+      panel.classList.toggle('open', open);
+      panel.inert = !open;
+    }
+
+    triggers.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const willOpen = btn.getAttribute('aria-expanded') !== 'true';
+        triggers.forEach((other) => { if (other !== btn) setOpen(other, false); });
+        setOpen(btn, willOpen);
+      });
+
+      btn.addEventListener('keydown', (e) => {
+        let next = null;
+        if (e.key === 'ArrowDown') next = triggers[(i + 1) % triggers.length];
+        else if (e.key === 'ArrowUp') next = triggers[(i - 1 + triggers.length) % triggers.length];
+        else if (e.key === 'Home') next = triggers[0];
+        else if (e.key === 'End') next = triggers[triggers.length - 1];
+        if (next) { e.preventDefault(); next.focus(); }
+      });
+    });
+  });
+
+
+  /* ===========================================================================
      3. SCROLL REVEAL
      ======================================================================== */
   const revealEls = document.querySelectorAll('.reveal');

@@ -705,19 +705,179 @@ body::before {
   background: var(--bg-deep);
 }
 
-/* how to order (content to follow) */
+/* how to order — accordion
+   Height animates via grid-template-rows 0fr -> 1fr (no JS measuring),
+   plus opacity and a small vertical slide on the content. */
 .howto {
+  --acc-line: color-mix(in srgb, var(--ink) 14%, transparent);
   margin: 14px auto 0;
   max-width: 520px;
-  padding: 18px;
+  padding: 4px 20px;
   background: var(--surface);
   color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 14px;
+}
+.acc-item + .acc-item { border-top: 1px solid var(--acc-line); }
+.acc-heading { margin: 0; font-size: inherit; }
+
+.acc-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 56px;              /* comfortable touch target */
+  padding: 14px 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .25s ease;
+}
+.acc-trigger:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.acc-chev {
+  flex: none;
+  width: 30px; height: 30px;
+  padding: 7px;
+  border: 1px solid var(--acc-line);
+  border-radius: 999px;
+  color: var(--accent-deep);
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1),
+              background .25s ease, border-color .25s ease, color .25s ease;
+}
+.acc-trigger[aria-expanded="true"] .acc-chev { transform: rotate(180deg); }
+
+@media (hover: hover) {
+  .acc-trigger:hover { color: var(--rose-deep); }
+  .acc-trigger:hover .acc-chev {
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    border-color: color-mix(in srgb, var(--accent-deep) 40%, transparent);
+  }
+}
+
+.acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .45s cubic-bezier(.2, .8, .2, 1);
+}
+.acc-panel.open { grid-template-rows: 1fr; }
+.acc-inner { min-height: 0; overflow: hidden; }
+
+.acc-content {
+  padding: 0 0 18px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .3s ease, transform .4s cubic-bezier(.2, .8, .2, 1);
+  font-size: .92rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.acc-panel.open .acc-content {
+  opacity: 1;
+  transform: none;
+  transition-delay: .08s;
+}
+
+/* Price & Payment: label / value rows */
+.acc-dl { margin: 0; }
+.acc-dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--acc-line);
+}
+.acc-dl div:last-child { border-bottom: 0; }
+.acc-dl dt {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  align-self: center;
+}
+.acc-dl dd {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* How to Order: numbered steps */
+.acc-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.acc-steps li {
+  position: relative;
+  padding: 6px 0 6px 36px;
+  counter-increment: step;
+}
+.acc-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 6px;
+  width: 24px; height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent-deep) 45%, transparent);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+
+/* Important Notes */
+.acc-notes { margin: 0; padding: 0; list-style: none; }
+.acc-notes li {
+  position: relative;
+  padding: 5px 0 5px 20px;
+}
+.acc-notes li::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: var(--rose);
+}
+.acc-thanks {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--acc-line);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink);
   text-align: center;
 }
-.howto h3 { font-size: 1.05rem; color: var(--ink); }
-.howto-body:empty { display: none; }
+
+@media (max-width: 420px) {
+  .howto { padding: 2px 16px; }
+  .acc-trigger { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-panel, .acc-content, .acc-chev { transition: none; }
+}
 
 
 /* =============================================================================
@@ -833,4 +993,23 @@ footer .fmeta a:hover { color: var(--accent); }
     border-left: 0;
     border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
   }
+}
+
+/* Payment accordion: contact rows + payment-method logos */
+.acc-dl dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+}
+.acc-dl dd a:hover { color: var(--rose-deep); }
+.acc-payment-img {
+  margin: 14px 0 0;
+  padding-top: 4px;         /* the image already has white space around the logos */
+  border-top: 1px solid var(--acc-line);
+}
+.acc-payment-img img {
+  display: block;
+  width: 100%;
+  height: auto;              /* keeps the native 3:2 ratio, never cropped */
+  mix-blend-mode: multiply;  /* white background melts into the cream card */
 }

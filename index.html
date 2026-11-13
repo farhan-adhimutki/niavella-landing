@@ -266,10 +266,91 @@
         </div>
       </div>
 
-      <!-- How to order (isi menyusul) -->
-      <div class="howto reveal" id="cara-order">
-        <h3>How to Order</h3>
-        <div class="howto-body"></div>
+      <!-- How to order — accordion (one panel open at a time) -->
+      <div class="howto accordion reveal" id="cara-order">
+          <div class="acc-item">
+            <h3 class="acc-heading">
+              <button class="acc-trigger" type="button" id="acc-order-btn" aria-expanded="false" aria-controls="acc-order">
+                <span>How to Order</span>
+                <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9 L12 15 L18 9"/></svg>
+              </button>
+            </h3>
+            <div class="acc-panel" id="acc-order" role="region" aria-labelledby="acc-order-btn" inert>
+              <div class="acc-inner">
+                <div class="acc-content">
+                  <ol class="acc-steps">
+                    <li>Chat admin untuk pemesanan.</li>
+                    <li>Isi formulir pemesanan yang dikirim oleh admin.</li>
+                    <li>Konfirmasi pemesanan.</li>
+                    <li>Lakukan pembayaran DP 50% dan kirimkan bukti pembayaran kepada admin.</li>
+                    <li>Ketika produk selesai, pelunasan akan diinformasikan oleh admin.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <h3 class="acc-heading">
+              <button class="acc-trigger" type="button" id="acc-price-btn" aria-expanded="false" aria-controls="acc-price">
+                <span>Purchase Information</span>
+                <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9 L12 15 L18 9"/></svg>
+              </button>
+            </h3>
+            <div class="acc-panel" id="acc-price" role="region" aria-labelledby="acc-price-btn" inert>
+              <div class="acc-inner">
+                <div class="acc-content">
+                  <dl class="acc-dl">
+                    <div><dt>Size M</dt><dd>Rp119.000/pcs</dd></div>
+                    <div><dt>Size L</dt><dd>Rp139.000/pcs</dd></div>
+                    <div><dt>Sistem</dt><dd>Pre-Order</dd></div>
+                    <div><dt>Pembayaran</dt><dd>DP 50%</dd></div>
+                    <div><dt>Pelunasan</dt><dd>Sebelum pengiriman.</dd></div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <h3 class="acc-heading">
+              <button class="acc-trigger" type="button" id="acc-payment-btn" aria-expanded="false" aria-controls="acc-payment">
+                <span>Payment</span>
+                <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9 L12 15 L18 9"/></svg>
+              </button>
+            </h3>
+            <div class="acc-panel" id="acc-payment" role="region" aria-labelledby="acc-payment-btn" inert>
+              <div class="acc-inner">
+                <div class="acc-content">
+                  <dl class="acc-dl">
+                    <div><dt>Atas Nama</dt><dd>niavelle</dd></div>
+                    <div><dt>No. Handphone</dt><dd><a href="https://wa.me/6289692091341" target="_blank" rel="noopener">0896-9209-1341</a></dd></div>
+                  </dl>
+                  <figure class="acc-payment-img">
+                    <img src="img/payment.webp" width="1536" height="1024" alt="Metode pembayaran: BRI, Alfamart, Akulaku, ShopeePay, OVO, QRIS, Mastercard, JCB, Visa, Danamon, Permata Bank, BNI" loading="lazy" />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <h3 class="acc-heading">
+              <button class="acc-trigger" type="button" id="acc-notes-btn" aria-expanded="false" aria-controls="acc-notes">
+                <span>Important Notes</span>
+                <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9 L12 15 L18 9"/></svg>
+              </button>
+            </h3>
+            <div class="acc-panel" id="acc-notes" role="region" aria-labelledby="acc-notes-btn" inert>
+              <div class="acc-inner">
+                <div class="acc-content">
+                  <ul class="acc-notes">
+                    <li>Pesanan hanya akan diproses setelah pembayaran DP dikonfirmasi.</li>
+                    <li>Pelunasan dilakukan sebelum pengiriman.</li>
+                    <li>Pembatalan pesanan: DP hangus.</li>
+                  </ul>
+                  <p class="acc-thanks">Terima kasih sudah mendukung brand kami. &#x1F90D;</p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </section>
 
