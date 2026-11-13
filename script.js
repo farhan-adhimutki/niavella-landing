@@ -120,6 +120,65 @@
 
 
   /* ===========================================================================
+     2b. MINI SLIDERS (info slider + product photos)
+     Swipe is native (CSS scroll-snap); here we add dots + arrows.
+     ======================================================================== */
+  document.querySelectorAll('.mslider').forEach((slider) => {
+    const track = slider.querySelector('.mtrack');
+    const items = Array.from(track.children);
+    if (items.length < 2) return;
+
+    const dotsEl = document.createElement('div');
+    dotsEl.className = 'mdots';
+    items.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Gambar ' + (i + 1));
+      b.addEventListener('click', () => go(i));
+      dotsEl.appendChild(b);
+    });
+    slider.appendChild(dotsEl);
+    const mdots = Array.from(dotsEl.children);
+
+    ['prev', 'next'].forEach((dir) => {
+      const a = document.createElement('button');
+      a.type = 'button';
+      a.className = 'marrow ' + dir;
+      a.setAttribute('aria-label', dir === 'prev' ? 'Sebelumnya' : 'Berikutnya');
+      a.textContent = dir === 'prev' ? '\u2039' : '\u203A';
+      a.addEventListener('click', () => go(current() + (dir === 'prev' ? -1 : 1)));
+      slider.appendChild(a);
+    });
+
+    function current() {
+      return Math.round(track.scrollLeft / track.clientWidth);
+    }
+    function go(i) {
+      i = (i + items.length) % items.length;
+      track.scrollTo({ left: i * track.clientWidth });
+    }
+    function sync() {
+      const c = current();
+      mdots.forEach((d, i) => d.classList.toggle('active', i === c));
+    }
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    sync();
+
+    // catalog photos auto-advance every 1.5s; pause while hovered/touched
+    if (slider.classList.contains('product-media') && !prefersReducedMotion) {
+      let paused = false;
+      setInterval(() => { if (!paused) go(current() + 1); }, 1500);
+      slider.addEventListener('mouseenter', () => { paused = true; });
+      slider.addEventListener('mouseleave', () => { paused = false; });
+      slider.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+      slider.addEventListener('touchend', () => {
+        setTimeout(() => { paused = false; }, 3000);
+      }, { passive: true });
+    }
+  });
+
+
+  /* ===========================================================================
      3. SCROLL REVEAL
      ======================================================================== */
   const revealEls = document.querySelectorAll('.reveal');

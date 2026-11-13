@@ -1,347 +1,447 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Niavella — tampil elegan dan modern dengan koleksi hijab dan abaya premium.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Niavelle — tampil elegan dan modern dengan koleksi hijab dan abaya premium."
+    />
 
-  <title>Niavella — Elegant Modest Wear</title>
+    <title>Niavelle — Elegant Modest Wear</title>
 
-  <!-- Google Fonts: Cormorant Garamond (display) + EB Garamond (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+    <!-- Google Fonts: Cormorant Garamond (display) + EB Garamond (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+    />
 
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- ============================================================
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ============================================================
        TOP BAR — logo + hamburger menu button
        ============================================================ -->
-  <header class="topbar wrap">
-    <a href="#hero" class="logo" aria-label="Niavella — ke beranda">
-      <img src="img/logo.png" alt="Niavella">
-    </a>
+    <header class="topbar wrap">
+      <a href="#hero" class="logo" aria-label="Niavelle — ke beranda">
+        <img src="img/logo-web.png" alt="Niavelle" />
+      </a>
 
-    <button class="menu-btn"
-            id="menuBtn"
-            aria-label="Buka menu"
-            aria-expanded="false"
-            aria-controls="drawer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="drawer"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
 
-
-  <!-- ============================================================
+    <!-- ============================================================
        DRAWER MENU — slides in from the right
        ============================================================ -->
-  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+    <div class="drawer-overlay" id="drawerOverlay" hidden></div>
 
-  <aside class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-head">
-      <img src="img/logo.png" alt="Niavella">
-      <button class="drawer-close" id="drawerClose" aria-label="Tutup menu">&times;</button>
-    </div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-head">
+        <img src="img/logo-web.png" alt="Niavelle" />
+        <button class="drawer-close" id="drawerClose" aria-label="Tutup menu">
+          &times;
+        </button>
+      </div>
 
-    <nav>
-      <a href="#hero"       data-nav><span class="num">01</span> Beranda</a>
-      <a href="#tentang"    data-nav><span class="num">02</span> Tentang</a>
-      <a href="#keunggulan" data-nav><span class="num">03</span> Keunggulan</a>
-      <a href="#katalog"    data-nav><span class="num">04</span> Koleksi</a>
-      <a href="#kontak"     data-nav><span class="num">05</span> Kontak</a>
-    </nav>
+      <nav>
+        <a href="#hero" data-nav><span class="num">01</span> Beranda</a>
+        <a href="#tentang" data-nav><span class="num">02</span> Tentang</a>
+        <a href="#keunggulan" data-nav
+          ><span class="num">03</span> Keunggulan</a
+        >
+        <a href="#katalog" data-nav><span class="num">04</span> Koleksi</a>
+        <a href="#kontak" data-nav><span class="num">05</span> Kontak</a>
+      </nav>
 
-    <div class="drawer-foot">
-      <div><b>Instagram</b>&nbsp; @niavella.official</div>
-      <div><b>TikTok</b>&nbsp; @niavella.official</div>
-      <div><b>Email</b>&nbsp; hello@niavella.com</div>
-      <div><b>WhatsApp</b>&nbsp; 0800-0000-000</div>
-    </div>
-  </aside>
+      <div class="drawer-foot">
+        <div><b>Instagram</b>&nbsp; @niavella.official</div>
+        <div><b>TikTok</b>&nbsp; @niavella.official</div>
+        <div><b>Email</b>&nbsp; hello@niavella.com</div>
+        <div><b>WhatsApp</b>&nbsp; 0800-0000-000</div>
+      </div>
+    </aside>
 
-
-  <!-- ============================================================
+    <!-- ============================================================
        HERO — full-bleed image slider with autoplay + swipe
        ============================================================ -->
-  <section class="hero bleed" id="hero">
-    <div class="slides" id="slides">
+    <section class="hero bleed" id="hero">
+      <div class="slides" id="slides">
+        <div class="slide active">
+          <img src="img/hero-1.jpg" alt="Koleksi Niavelle" loading="eager" />
+          <div class="scrim"></div>
+          <div class="copy">
+            <span class="eyebrow">Daily Modest Wear</span>
+            <h1>Nyaman, Santun,<br />&amp; Berkelas</h1>
+            <p class="sub">Daily modest wear &amp; essentials pilihanmu.</p>
+          </div>
+        </div>
 
-      <div class="slide active">
-        <img src="img/hero1.jpg" alt="Koleksi Dawam" loading="eager">
-        <div class="scrim"></div>
-        <div class="copy">
-          <span class="eyebrow">New Collection</span>
-          <h1>Steady Steps,<br>Endless Grace</h1>
-          <p class="sub">Elegan dan nyaman untuk kesyukuran hari-hari Anda.</p>
+        <div class="slide poster">
+          <img
+            class="backdrop"
+            src="img/hero-2.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <img
+            src="img/hero-2.jpg"
+            alt="Dawam Pashmina Bandana — Promo Launching Segera Hadir"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="slide poster">
+          <img
+            class="backdrop"
+            src="img/hero-3.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <img
+            src="img/hero-3.jpg"
+            alt="It's Launch Day — Dawam Pashmina Bandana"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="slide poster">
+          <img
+            class="backdrop"
+            src="img/hero-4.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <img
+            src="img/hero-4.jpg"
+            alt="Dawam Pashmina Bandana — Steady Steps, Endless Grace"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="slide">
+          <img
+            src="img/hero-5.jpg"
+            alt="Koleksi Dawam Pashmina Bandana"
+            loading="lazy"
+          />
+          <div class="scrim"></div>
+          <div class="copy">
+            <span class="eyebrow">Modest Everyday</span>
+            <h1>Find Your<br />Perfect Size</h1>
+            <p class="sub">
+              Tersedia S/M dan L/XL agar pas di berbagai bentuk tubuh.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="slide">
-        <img src="img/hero2.jpg" alt="Pashmina Bandana" loading="lazy">
-        <div class="scrim"></div>
-        <div class="copy">
-          <span class="eyebrow">Signature</span>
-          <h1>Pashmina<br>Bandana</h1>
-          <p class="sub">Jatuh sempurna, dengan hijab bermotif abstrak khas Niavella.</p>
-        </div>
+      <div class="hero-ui">
+        <div class="dots" id="dots"></div>
       </div>
+    </section>
 
-      <div class="slide">
-        <img src="img/hero3.jpg" alt="Find Your Perfect Size" loading="lazy">
-        <div class="scrim"></div>
-        <div class="copy">
-          <span class="eyebrow">Modest Everyday</span>
-          <h1>Find Your<br>Perfect Size</h1>
-          <p class="sub">Tersedia S/M dan L/XL — dirancang untuk setiap bentuk tubuh.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="hero-ui">
-      <div class="dots" id="dots"></div>
-      <a class="hero-cta" href="#katalog">Lihat Koleksi</a>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
+    <!-- ============================================================
        STORY — brand narrative + logo showcase box
        ============================================================ -->
-  <section class="story wrap" id="tentang">
-    <div class="reveal">
-      <span class="eyebrow label">Tentang Niavella</span>
-      <h2>Tampil elegan dan modern dalam setiap langkah</h2>
-      <p>Niavella hadir untuk perempuan yang ingin tampil anggun tanpa kehilangan kenyamanan. Hijab bermotif abstrak, gamis dengan jatuh yang sempurna, dan bahan yang lembut di kulit — dirancang untuk aktivitas sehari-hari hingga acara spesial.</p>
-      <p>Setiap potongan dibuat dengan perhatian pada detail: jahitan rapi, proporsi yang dipikirkan, dan ukuran yang benar-benar pas.</p>
-    </div>
+    <section class="story wrap" id="tentang">
+      <div class="reveal">
+        <span class="eyebrow label">Tentang Niavelle</span>
+        <h2>
+          Selamat datang di Niavelle, rumah bagi daily modest wear &amp;
+          essentials pilihanmu.
+        </h2>
+        <p>
+          Kami hadir untuk mendampingi setiap langkah kecil dalam perjalanan
+          istiqomahmu melalui koleksi busana yang nyaman, santun, dan berkelas.
+          Karena kami percaya, tampil syar&rsquo;i dan tetap bergaya di era
+          modern kini bisa berjalan beriringan.
+        </p>
+      </div>
 
-    <div class="story-art reveal">
-      <img src="img/logo.png" alt="Niavella">
-    </div>
-  </section>
+      <div class="story-art reveal">
+        <img src="img/logo-web.png" alt="Niavelle" />
+      </div>
+    </section>
 
-
-  <!-- ============================================================
+    <!-- ============================================================
        VALUES — three key benefits
        ============================================================ -->
-  <section class="values wrap" id="keunggulan">
-    <div class="values-grid stagger">
+    <section class="values wrap" id="keunggulan">
+      <div class="values-grid stagger">
+        <div class="value-card reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M4 12 L10 18 L20 6" />
+          </svg>
+          <h3>Bahan Premium</h3>
+          <p>
+            Lightweight, breathable, and effortlessly flowy complete with built
+            in UV protection for all-day comfort.
+          </p>
+        </div>
 
-      <div class="value-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <path d="M4 12 L10 18 L20 6"/>
-        </svg>
-        <h3>Bahan Premium</h3>
-        <p>Kain yang lembut, jatuh sempurna, dan nyaman untuk dipakai seharian.</p>
+        <div class="value-card reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <path d="M8 12 H16 M12 8 V16" />
+          </svg>
+          <h3>Ukuran</h3>
+          <p>Tersedia S/M dan L/XL agar pas di berbagai bentuk tubuh.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M4 7 H20 M4 12 H20 M4 17 H14" />
+          </svg>
+          <h3>Dikirim dari Jambi</h3>
+          <p>Pengemasan rapi dan pengiriman langsung dari studio Niavelle.</p>
+        </div>
       </div>
 
-      <div class="value-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M8 12 H16 M12 8 V16"/>
-        </svg>
-        <h3>Ukuran Lengkap</h3>
-        <p>Tersedia S/M dan L/XL agar pas di berbagai bentuk tubuh.</p>
+      <!-- Price list + size chart slider -->
+      <div class="info-slider mslider reveal" aria-label="Harga dan size chart">
+        <div class="mtrack">
+          <div class="mslide">
+            <img
+              src="img/info-price.jpg"
+              alt="Harga Dawam Pashban: S/M Rp 119.000 (dari Rp 170.000), L/XL Rp 139.000 (dari Rp 199.000). Special launching 13-30 November 2026."
+              loading="lazy"
+            />
+          </div>
+          <div class="mslide">
+            <img
+              src="img/info-size.jpg"
+              alt="Size chart Dawam Pashban S/M dan L/XL: panjang hijab 149/156 cm, lebar hijab 66/87,5 cm, lebar bandana 6 cm, panjang bandana 127 cm, lingkar muka 28-29 cm."
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="value-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <path d="M4 7 H20 M4 12 H20 M4 17 H14"/>
-        </svg>
-        <h3>Dikirim dari Jambi</h3>
-        <p>Pengemasan rapi dan pengiriman langsung dari studio Niavella.</p>
+      <!-- How to order (isi menyusul) -->
+      <div class="howto reveal" id="cara-order">
+        <h3>How to Order</h3>
+        <div class="howto-body"></div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-
-  <!-- ============================================================
+    <!-- ============================================================
        CATALOG — product grid with original + discounted prices
        ============================================================ -->
-  <section class="catalog wrap" id="katalog">
-    <div class="catalog-head">
-      <h2>Katalog</h2>
-      <span class="count">6 produk</span>
-    </div>
+    <section class="catalog wrap" id="katalog">
+      <div class="catalog-head">
+        <h2>Katalog</h2>
+        <span class="count">2 produk</span>
+      </div>
 
-    <div class="product-grid stagger">
-
-      <article class="product-card reveal">
-        <div class="product-media">
-          <img src="img/p1.jpg" alt="Dawam Pashban" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="pname">Dawam Pashban</span>
-          <span class="pcat">Pashmina Bandana</span>
-          <div class="pricebox">
-            <span class="original">Rp 235.000</span>
-            <div class="now">
-              <span class="price">Rp 189.000</span>
-              <span class="badge">-20%</span>
+      <div class="product-grid stagger">
+        <article class="product-card reveal">
+          <div class="product-media mslider">
+            <div class="mtrack">
+              <div class="mslide">
+                <img
+                  src="img/cat1-1.jpg"
+                  alt="Dawam Pashban &mdash; Maroon"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mslide">
+                <img
+                  src="img/cat1-2.jpg"
+                  alt="Dawam Pashban &mdash; Maroon"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article class="product-card reveal">
-        <div class="product-media">
-          <img src="img/p2.jpg" alt="Nadia Abaya" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="pname">Nadia Abaya</span>
-          <span class="pcat">Abaya &middot; S/M &middot; L/XL</span>
-          <div class="pricebox">
-            <span class="original">Rp 625.000</span>
-            <div class="now">
-              <span class="price">Rp 499.000</span>
-              <span class="badge">-20%</span>
+          <div class="product-info">
+            <span class="pname">Dawam Pashban &mdash; Maroon</span>
+            <span class="pcat"
+              >Pashmina Bandana &middot; S/M &middot; L/XL</span
+            >
+            <div class="pricebox">
+              <span class="original">Rp 170.000</span>
+              <div class="now">
+                <span class="price">Rp 119.000</span>
+                <span class="badge">-30%</span>
+              </div>
+              <span class="pnote">S/M Rp 119.000 &middot; L/XL Rp 139.000</span>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="product-card reveal">
-        <div class="product-media">
-          <img src="img/p3.jpg" alt="Amara Khimar" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="pname">Amara Khimar</span>
-          <span class="pcat">Khimar &middot; Pashmina</span>
-          <div class="pricebox">
-            <span class="original">Rp 225.000</span>
-            <div class="now">
-              <span class="price">Rp 179.000</span>
-              <span class="badge">-20%</span>
+        <article class="product-card reveal">
+          <div class="product-media mslider">
+            <div class="mtrack">
+              <div class="mslide">
+                <img
+                  src="img/cat2-1.jpg"
+                  alt="Dawam Pashban &mdash; Black"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mslide">
+                <img
+                  src="img/cat2-2.jpg"
+                  alt="Dawam Pashban &mdash; Black"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article class="product-card reveal">
-        <div class="product-media">
-          <img src="img/hero1.jpg" alt="Sofia Set" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="pname">Sofia Set</span>
-          <span class="pcat">Khimar + Gamis</span>
-          <div class="pricebox">
-            <span class="original">Rp 749.000</span>
-            <div class="now">
-              <span class="price">Rp 599.000</span>
-              <span class="badge">-20%</span>
+          <div class="product-info">
+            <span class="pname">Dawam Pashban &mdash; Black</span>
+            <span class="pcat"
+              >Pashmina Bandana &middot; S/M &middot; L/XL</span
+            >
+            <div class="pricebox">
+              <span class="original">Rp 170.000</span>
+              <div class="now">
+                <span class="price">Rp 119.000</span>
+                <span class="badge">-30%</span>
+              </div>
+              <span class="pnote">S/M Rp 119.000 &middot; L/XL Rp 139.000</span>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
 
-      <article class="product-card reveal">
-        <div class="product-media">
-          <img src="img/hero2.jpg" alt="Lana Bergo" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="pname">Lana Bergo</span>
-          <span class="pcat">Bergo Instan</span>
-          <div class="pricebox">
-            <span class="original">Rp 155.000</span>
-            <div class="now">
-              <span class="price">Rp 125.000</span>
-              <span class="badge">-19%</span>
-            </div>
-          </div>
-        </div>
-      </article>
+      <!-- CTA band at the end of the catalog -->
+      <div class="ctaband reveal">
+        <h2>Ada Pertanyaan/Order disini</h2>
+        <p>Tim kami siap bantu lewat chat, tiap hari jam 09.00–20.00 WIB.</p>
+        <a
+          class="wa-full"
+          href="https://wa.me/6280000000000?text=Halo%20Niavelle%2C%20saya%20mau%20tanya%20soal%20produk"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.3c-.2.6-1.3 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.2.1.9-.1 1.5Z"
+            />
+          </svg>
+          Chat via WhatsApp
+        </a>
+      </div>
+    </section>
 
-      <article class="product-card reveal">
-        <div class="product-media">
-          <img src="img/hero3.jpg" alt="Zahra Shawl" loading="lazy">
-        </div>
-        <div class="product-info">
-          <span class="pname">Zahra Shawl</span>
-          <span class="pcat">Pashmina Panjang</span>
-          <div class="pricebox">
-            <span class="original">Rp 205.000</span>
-            <div class="now">
-              <span class="price">Rp 165.000</span>
-              <span class="badge">-20%</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- CTA band at the end of the catalog -->
-    <div class="ctaband reveal">
-      <h2>Ada pertanyaan soal ukuran atau bahan?</h2>
-      <p>Tim kami siap bantu lewat chat, tiap hari jam 09.00–20.00 WIB.</p>
-      <a class="wa-full"
-         href="https://wa.me/6280000000000?text=Halo%20Niavella%2C%20saya%20mau%20tanya%20soal%20produk"
-         target="_blank"
-         rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.3c-.2.6-1.3 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.2.1.9-.1 1.5Z"/>
-        </svg>
-        Chat via WhatsApp
-      </a>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
+    <!-- ============================================================
        FOOTER — contact + socials
        ============================================================ -->
-  <footer class="wrap" id="kontak">
-    <div class="flogo">
-      <img src="img/logo.png" alt="Niavella">
-    </div>
+    <footer class="wrap" id="kontak">
+      <div class="flogo">
+        <img src="img/logo-web.png" alt="Niavelle" />
+      </div>
 
-    <div class="follow-label">Follow us on</div>
+      <div class="follow-label">Follow us on</div>
 
-    <div class="socials">
-      <a href="https://instagram.com/niavella.official" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
-      <a href="https://tiktok.com/@niavella.official" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.5 8.3a6.3 6.3 0 0 1-4.1-1.5v7.8a5.3 5.3 0 1 1-4.6-5.3v2.6a2.7 2.7 0 1 0 1.9 2.6V2.5h2.6a4 4 0 0 0 4.2 4v1.8Z"/>
-        </svg>
-      </a>
-      <a href="mailto:hello@niavella.com" aria-label="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <rect x="3" y="5" width="18" height="14" rx="2"/>
-          <path d="M3 7 L12 13 L21 7"/>
-        </svg>
-      </a>
-      <a href="https://wa.me/6280000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.3c-.2.6-1.3 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.2.1.9-.1 1.5Z"/>
-        </svg>
-      </a>
-    </div>
+      <div class="socials">
+        <a
+          href="https://instagram.com/niavella.official"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle
+              cx="17.5"
+              cy="6.5"
+              r="1"
+              fill="currentColor"
+              stroke="none"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://tiktok.com/@niavella.official"
+          target="_blank"
+          rel="noopener"
+          aria-label="TikTok"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19.5 8.3a6.3 6.3 0 0 1-4.1-1.5v7.8a5.3 5.3 0 1 1-4.6-5.3v2.6a2.7 2.7 0 1 0 1.9 2.6V2.5h2.6a4 4 0 0 0 4.2 4v1.8Z"
+            />
+          </svg>
+        </a>
+        <a href="mailto:hello@niavella.com" aria-label="Email">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7 L12 13 L21 7" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/6280000000000"
+          target="_blank"
+          rel="noopener"
+          aria-label="WhatsApp"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.3c-.2.6-1.3 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.2.1.9-.1 1.5Z"
+            />
+          </svg>
+        </a>
+      </div>
 
-    <div class="fmeta">
-      <div><b>Instagram</b>&nbsp; @niavella.official</div>
-      <div><b>TikTok</b>&nbsp; @niavella.official</div>
-      <div><b>Email</b>&nbsp; hello@niavella.com</div>
-      <div><b>WhatsApp</b>&nbsp; 0800-0000-000</div>
-      <div><b>Studio</b>&nbsp; Jambi, Indonesia</div>
-    </div>
+      <div class="fmeta">
+        <div><b>Instagram</b>&nbsp; @niavella.official</div>
+        <div><b>TikTok</b>&nbsp; @niavella.official</div>
+        <div><b>Email</b>&nbsp; hello@niavella.com</div>
+        <div><b>WhatsApp</b>&nbsp; 0800-0000-000</div>
+        <div><b>Studio</b>&nbsp; Jambi, Indonesia</div>
+      </div>
 
-    <div class="fnote">&copy; 2026 Niavella. Tampil elegan dan modern dalam setiap langkah.</div>
-  </footer>
+      <div class="fnote">
+        &copy; 2026 Niavelle. Tampil elegan dan modern dalam setiap langkah.
+      </div>
+    </footer>
 
-
-  <script src="script.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
