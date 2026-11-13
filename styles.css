@@ -780,3 +780,13 @@ footer .fnote {
   color: var(--fg-muted);
   opacity: .7;
 }
+
+/* social handle links in drawer + footer meta */
+.drawer-foot a,
+footer .fmeta a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+}
+.drawer-foot a:hover,
+footer .fmeta a:hover { color: var(--accent); }
